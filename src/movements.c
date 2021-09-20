@@ -6,7 +6,7 @@
 /*   By: dalves-s <dalves-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 17:55:50 by dalves-s          #+#    #+#             */
-/*   Updated: 2021/09/15 23:04:53 by dalves-s         ###   ########.fr       */
+/*   Updated: 2021/09/16 00:12:56 by dalves-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	move_up(t_map *map)
 	int		line;
 	int		column;
 
-	map->steps += 1;
 	line = 0;
 	while (map->lines[line] != NULL)
 	{
@@ -36,7 +35,6 @@ void	move_right(t_map *map)
 	int		line;
 	int		column;
 
-	map->steps += 1;
 	line = 0;
 	while (map->lines[line] != NULL)
 	{
@@ -55,7 +53,6 @@ void	move_bottom(t_map *map)
 	int		line;
 	int		column;
 
-	map->steps += 1;
 	line = map->m_height - 1;
 	while (line >= 0)
 	{
@@ -74,7 +71,6 @@ void	move_left(t_map *map)
 	int		line;
 	int		column;
 
-	map->steps += 1;
 	line = 0;
 	while (map->lines[line] != NULL)
 	{

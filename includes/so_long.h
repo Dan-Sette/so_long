@@ -6,7 +6,7 @@
 /*   By: dalves-s <dalves-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:55:51 by dalves-s          #+#    #+#             */
-/*   Updated: 2021/09/15 23:21:50 by dalves-s         ###   ########.fr       */
+/*   Updated: 2021/09/19 20:33:05 by dalves-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_map {
 	char	*backup[50];
 	int		m_width;
 	int		m_height;
-	int		check_P;
-	int		check_E;
-	int		check_C;
+	int		check_p;
+	int		check_e;
+	int		check_c;
 	int		fd;
 	int		steps;
 }	t_map;
@@ -45,7 +45,7 @@ typedef struct s_map {
 void	check_arguments(int argc, char **argv);
 void	init_struct(t_map *map);
 void	get_map_struct(char **argv, t_map *map);
-void	count_map_PCE(t_map *map);
+void	count_map_pce(t_map *map);
 void	map_handler(t_map *map);
 void	move_up(t_map *map);
 void	move_right(t_map *map);

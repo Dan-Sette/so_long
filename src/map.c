@@ -6,7 +6,7 @@
 /*   By: dalves-s <dalves-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 22:02:12 by dalves-s          #+#    #+#             */
-/*   Updated: 2021/09/15 23:30:10 by dalves-s         ###   ########.fr       */
+/*   Updated: 2021/09/19 20:41:58 by dalves-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	move_player(int key_code, t_map *map)
 		exit_map(map);
 	else if (key_code == 0x0072)
 		reset(map);
-	printf("\nSteps: %i\n", map->steps);
-	printf("\n");
 	put_image(map);
+	mlx_string_put(map->mlx_ptr, map->win_ptr,
+		10, 20, 0xFFFFFF, ft_itoa(map->steps));
 	return (0);
 }
 
@@ -63,7 +63,7 @@ void	reset(t_map *map)
 	map->m_height = 0;
 	map->side = 0;
 	map->steps = 0;
-	map->check_C = 0;
+	map->check_c = 0;
 	line = 0;
 	while (map->backup[line] != NULL)
 	{
@@ -77,7 +77,7 @@ void	reset(t_map *map)
 		line++;
 		map->m_height++;
 	}
-	count_map_PCE(map);
+	count_map_pce(map);
 	map->m_width = ft_strlen(&map->lines[0][0]);
 	map->lines[map->m_height + 1] = NULL;
 	map_handler(map);

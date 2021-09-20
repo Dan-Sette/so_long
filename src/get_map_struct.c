@@ -6,7 +6,7 @@
 /*   By: dalves-s <dalves-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 18:03:28 by dalves-s          #+#    #+#             */
-/*   Updated: 2021/09/15 23:04:22 by dalves-s         ###   ########.fr       */
+/*   Updated: 2021/09/19 20:39:14 by dalves-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_map_wall(t_map *map)
 	}
 }
 
-void	count_map_PCE(t_map *map)
+void	count_map_pce(t_map *map)
 {
 	size_t	j;
 	size_t	i;
@@ -52,26 +52,26 @@ void	count_map_PCE(t_map *map)
 		while (map->lines[j][i] != '\0')
 		{
 			if (map->lines[j][i] == 'P')
-				map->check_P++;
+				map->check_p++;
 			if (map->lines[j][i] == 'C')
-				map->check_C++;
+				map->check_c++;
 			if (map->lines[j][i] == 'E')
-				map->check_E++;
+				map->check_e++;
 			i++;
 		}
 		j++;
 	}
 }
 
-void	check_error_PCE(t_map *map)
+void	check_error_pce(t_map *map)
 {
-	if (map->check_P != 1 || map->check_E != 1 || map->check_C < 1)
+	if (map->check_p != 1 || map->check_e != 1 || map->check_c < 1)
 	{
-		if (map->check_P != 1)
+		if (map->check_p != 1)
 			ft_putstr_fd("ERROR\nMap must include 1 player (only 1)\n", 1);
-		if (map->check_E != 1)
+		if (map->check_e != 1)
 			ft_putstr_fd("ERROR\nMap must include 1 exit point (only 1)\n", 1);
-		if (map->check_C < 1)
+		if (map->check_c < 1)
 			ft_putstr_fd("ERROR\nMap must include at least 1 collectable", 1);
 		exit (0);
 	}
@@ -116,6 +116,6 @@ void	get_map_struct(char **argv, t_map *map)
 	map->m_width = ft_strlen(&map->lines[0][0]);
 	map->lines[map->m_height + 1] = NULL;
 	check_map_wall(map);
-	count_map_PCE(map);
-	check_error_PCE(map);
+	count_map_pce(map);
+	check_error_pce(map);
 }
